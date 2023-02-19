@@ -1,4 +1,13 @@
 
+const delayTime = 6000;
+
+// Wait for the page to load before running the code
+window.onload = function () {
+    setTimeout(function () {
+        // Redirect to index.html
+        window.location.href = "index.html";
+    }, delayTime);
+};
 
 var item;
 $(document).ready(function () {
