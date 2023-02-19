@@ -1,12 +1,14 @@
 #calc_container {
-    width: 100px;
-    height: 100px;
-    background-color: #5f635e;
-    border-radius: 5px;
-    z-index: 10;
-    position: relative;
     margin: 0 auto;
-    top: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: #5f635e;
+    border-radius: 1.5em;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #bg {
