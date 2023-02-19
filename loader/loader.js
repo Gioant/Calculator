@@ -3,7 +3,7 @@ let item;
 // Set the delay time in milliseconds
 const delayTime = 6000;
 
-// Wait for the page to load before running the code
+//  Wait for the page to load before running the code
 $(document).ready(function () {
     // Start the calculator animation
     animateCalculator(0);
