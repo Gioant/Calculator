@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     setTimeout(function () {
         // Redirect to index.html
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     }, delayTime);
 });
 
