@@ -1,17 +1,18 @@
 let item;
 
-
 // Set the delay time in milliseconds
 const delayTime = 6000;
 
 // Wait for the page to load before running the code
 $(document).ready(function () {
     // Start the calculator animation
-    animateCalculator(60);
+    animateCalculator(0);
 
+    // Add a delay before redirecting to index.html
     setTimeout(function () {
-        // Redirect to index.html
-        window.location.href = "../index.html";
+        $('body').fadeOut(500, function () {
+            window.location.href = "../index.html";
+        });
     }, delayTime);
 });
 
