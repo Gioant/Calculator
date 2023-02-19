@@ -11,7 +11,7 @@ $(document).ready(function () {
     // Add a delay before redirecting to index.html
     setTimeout(function () {
         $('body').fadeOut(500, function () {
-            window.location.href = "../index.html";
+            window.location.href = "./calculator/calculator.html";
         });
     }, delayTime);
 });
