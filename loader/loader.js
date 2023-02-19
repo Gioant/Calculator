@@ -1,26 +1,26 @@
+let item;
 
+
+// Set the delay time in milliseconds
 const delayTime = 6000;
 
 // Wait for the page to load before running the code
-window.onload = function () {
+$(document).ready(function () {
+    // Start the calculator animation
+    animateCalculator(60);
+
     setTimeout(function () {
         // Redirect to index.html
         window.location.href = "index.html";
     }, delayTime);
-};
-
-var item;
-$(document).ready(function () {
-
-    animateCalculator(0);
-
 });
+
 
 
 function animateCalculator(counter) {
     let polys = $("#calc").children("g").children("polygon");
     let rand = getRandom(0, polys.length - 1);
-    var item = $(polys[rand]);
+    item = $(polys[rand]);
     let screen = $("#screen");
     let color = new RColor();
     let color2 = color.get(true, 0.88, 0.88);
