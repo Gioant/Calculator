@@ -11,47 +11,40 @@
 
 <body>
     <main>
-        <div class="calculator">
-            <div class="screen">
-                <div id="sc-top"></div>
-                <div id="sc-bottom">0</div>
+        <div id="calculator">
+            <div id="screen">
+                <div id="user_input"></div>
+                <div id="result">0</div>
             </div>
 
-            <div class="button-box">
-                <div class="btns-row">
-                    <div class="btn-clear" id="clear-entry">CE</div>
-                    <div class="btn-clear" id="clear-all">C</div>
-                    <div class="btn-clear" id="undo">&#9003;</div>
-                    <div class="btn-operator">/</div>
-                </div>
+            <div id="all-btns">
+                <button class="clear_Entry" id="clear-entry">CE</button>
+                <button class="clear_All" id="clear-all">C</button>
+                <button class="btn-changeSign" id="change-sign">+/-</button>
+                <button class="btn-operator">/</button>
 
-                <div class="btns-row">
-                    <div class="btn-number">7</div>
-                    <div class="btn-number">8</div>
-                    <div class="btn-number">9</div>
-                    <div class="btn-operator">x</div>
-                </div>
-                <div class="btns-row">
-                    <div class="btn-number">4</div>
-                    <div class="btn-number">5</div>
-                    <div class="btn-number">6</div>
-                    <div class="btn-operator">-</div>
-                </div>
+                <button class="btn_num">7</button>
+                <button class="btn_num">8</button>
+                <button class="btn_num">9</button>
+                <button class="btn-operator">x</button>
 
-                <div class="btns-row">
-                    <div class="btn-number">1</div>
-                    <div class="btn-number">2</div>
-                    <div class="btn-number">3</div>
-                    <div class="btn-operator">+</div>
-                </div>
+                <button class="btn_num">4</button>
+                <button class="btn_num">5</button>
+                <button class="btn_num">6</button>
+                <button class="btn-operator">-</button>
 
-                <div class="btns-row">
-                    <div class="btn-changeSign" id="change-sign">+/-</div>
-                    <div class="btn-number">0</div>
-                    <div class="btn-number">.</div>
-                    <div id="equals-btn">=</div>
-                </div>
+                <button class="btn-num">1</button>
+                <button class="btn-num">2</button>
+                <button class="btn-num">3</button>
+                <button class="btn-operator">+</button>
+
+                <button class="btn-number">.</button>
+                <button class="btn-num">0</button>
+                <button id="equals">=</button>
             </div>
+
+
+
         </div>
     </main>
 </body>
