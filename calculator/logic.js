@@ -59,24 +59,21 @@ const operation = function () {
     1) if conditions to check operation
     2) calls specific function and saves it in result variable
     */
-    if (operator === "") {
-        return;
-    }
-
-    if (operator === "+") {
-        result = add(num1, num2);
-    }
-
-    if (operator === "-") {
-        result = subtract(num1, num2);
-    }
-
-    if (operator === "x") {
-        result = multiply(num1, num2);
-    }
-
-    if (operator === "/") {
-        result = divide(num1, num2);
+    switch (operator) {
+        case "+":
+            result = add(num1, num2);
+            break;
+        case "-":
+            result = subtract(num1, num2);
+            break;
+        case "x":
+            result = multiply(num1, num2);
+            break;
+        case "/":
+            result = divide(num1, num2);
+            break;
+        default:
+            return;
     }
 
 
