@@ -8,7 +8,7 @@ let num1 = 0;
 let num2 = 0;
 let result = 0;
 let operator = "";
-let total = false;
+let checker = false;
 
 
 //Getting all buttons & operator buttons + adding event listeners
@@ -47,3 +47,43 @@ function multiply(num1, num2) {
     return num1 * num2;
 }
 
+
+
+//operation function
+const operation = function () {
+    num2 = Number(lastInput.join("").toString);
+    console.log(num1);
+    console.log(num2);
+
+    /*
+    1) if conditions to check operation
+    2) calls specific function and saves it in result variable
+    */
+    if (operator === "") {
+        return;
+    }
+
+    if (operator === "+") {
+        result = add(num1, num2);
+    }
+
+    if (operator === "-") {
+        result = subtract(num1, num2);
+    }
+
+    if (operator === "x") {
+        result = multiply(num1, num2);
+    }
+
+    if (operator === "/") {
+        result = divide(num1, num2);
+    }
+
+
+
+    topSc.textContent = checkIfFloat(num1) + " " + operator + " " + checkIfFloat(num2) + " =";
+    bottomSc.textContent = checkIfFloat(result);
+
+    num1 = result
+    checker = true;
+};
