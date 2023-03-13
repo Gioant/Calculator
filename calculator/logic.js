@@ -166,10 +166,26 @@ function checkIfFloat(num) {
 };
 
 
+function clearData(btn) {
+    topSc.textContent = "";
+    bottomSc.textContent = "0";
+    operator = "";
+    num1 = 0;
+    num2 = 0;
+    lastInput = [];
+    result = 0;
+};
+
+function clearEntry(btn) {
+    bottomSc.textContent = "0";
+    num2 = 0;
+    lastInput = [];
+};
+
 
 //change numberSign
-function changeNumberSign () {
-    let num = Number(bottomSc,textContent);
+function changeNumberSign() {
+    let num = Number(bottomSc, textContent);
     num = num - (num * 2);
     lastInput = [num];
     bottomSc.textContent = num;
