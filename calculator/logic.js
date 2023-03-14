@@ -1,7 +1,7 @@
 //declaring necessary variables
 let num1 = 0;
 let num2 = 0;
-let operator = "";
+let current_operator = null;
 let shouldResetScreen = false;
 
 //getting top & bottom screens 
@@ -21,10 +21,10 @@ const clearEntryBtn = document.querySelector("#clear-entry");
 const changeNumberSignBtn = document.querySelector("#change-sign");
 
 
-//adding event listeners
+//adding event listeners & calling appropriate function
 equals.addEventListener('click', evaluate);
 clearAllBtn.addEventListener('click', clear);
-clearEntryBtn.addEventListener('click', clearAll);
+clearEntryBtn.addEventListener('click', clearEntry);
 decimalBtn.addEventListener('click', appendDecimal);
 
 
@@ -93,6 +93,59 @@ function appendDecimal() {
     bottomSc.textContent += ".";
 }
 
+
+//function to track the user's input and follow order of operations
+function SetOperation(operator) {
+    if (current_operator !== null) {
+        evaluate();
+    }
+
+    num1 = current_operator.textContent;
+    current_operator = operator;
+    topSc.textContent = topSc.textContent = num1 + ' ' + current_operator;
+};
+
+
+//function to evaluate
+function evaluate() {
+    if (current_operator === null || shouldResetScreen) {
+        return;
+    }
+
+    if (current_operator === "÷" && bottomSc.textContent === "0") {
+        alert("Error! Can't Divide by 0!");
+        return;
+    }
+
+    num2 = bottomSc.textContent
+    bottomSc.textContent = roundResult(operate)
+}
+
+
+//function for operator
+function operate(op, num1, num2) {
+    num1 = Number(num1);
+    num2 = number(num2);
+
+    switch (op) {
+        case '+':
+            return add(num1, num2);
+        case '-':
+            return subtract(num1, num2);
+        case 'x':
+            return multiply(num1, num2);
+        case '÷':
+            if (num2 === 0) {
+                return null;
+            } else {
+                return divide(num1, num2);
+            }
+        default:
+            return null;
+    }
+}
+
+
 //math functions
 function add(num1, num2) {
     return num1 + num2;
@@ -109,47 +162,3 @@ function divide(num1, num2) {
 function multiply(num1, num2) {
     return num1 * num2;
 }
-
-
-//operation function
-function operation() {
-    num2 = Number(bottomSc.textContent);
-    console.log(num1);
-    console.log(num2);
-
-    //check operator
-    switch (operator) {
-        case "+":
-            result = add(num1, num2);
-            break;
-        case "-":
-            result = subtract(num1, num2);
-            break;
-        case "x":
-            result = multiply(num1, num2);
-            break;
-        case "/":
-            result = divide(num1, num2);
-            break;
-        default:
-            return;
-    }
-
-
-};
-
-function clearData(btn) {
-    topSc.textContent = "";
-    bottomSc.textContent = "0";
-    operator = "";
-    num1 = 0;
-    num2 = 0;
-    result = 0;
-};
-
-function clearEntry(btn) {
-    bottomSc.textContent = "0";
-    num2 = 0;
-};
-
-
