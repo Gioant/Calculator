@@ -17,32 +17,39 @@ const numberBtns = document.querySelectorAll(".btn_num");
 const operatorBtns = document.querySelectorAll(".btn_operator");
 
 
-const changeNumberSignBtn = document.getElementById('change-sign')
+const changeSignBtn = document.getElementById('change-sign')
 
 
 //adding event listeners & calling appropriate function
 numberBtns.forEach(button => {
-    button.addEventListener('click', () => addNumber(button.innerHTML));
+    button.addEventListener('click', () => {
+        const number = button.innerHTML;
+        displayNumber(number);
+    });
 });
 
 operatorBtns.forEach(button => {
-    button.addEventListener('click', () => compute(button.innerHTML));
+    button.addEventListener('click', () => {
+        const operator = button.innerHTML;
+        calculator.operand = operator;
+    });
 });
 
 
-function updateDisplay() {
-    topSc.innerHTML = calculator.display;
-}
 
-
-//function to show current operation on bottom div
 function displayNumber(number) {
-    if (bottomSc.textContent === "0" || shouldResetScreen) {
-        resetScreen();
+    if (calculator.operand) {
+        topSc.textContent += " " + calculator.operand + " " + number;
+        calculator.num2 += number;
+    } else {
+        topSc.textContent += number;
+        calculator.num1 += number;
     }
-    bottomSc.textContent += number;
-}
 
+    let result = operate(calculator);
+    bottomSc.textContent = result || number;
+    calculator.display = topSc.textContent + " = " + bottomSc.textContent;
+}
 //function to clear everything
 function clear() {
     bottomSc.textContent = "0";
@@ -89,39 +96,35 @@ function appendDecimal() {
 
 
 
-function operate(operand, a, b) {
+function operate(calculator) {
+    let num1 = Number(calculator.num1);
+    let num2 = Number(calculator.num2);
+    let operand = calculator.operand;
+    let result = "";
 
     switch (operand) {
-
         case "+":
-            result = sum(a, b);
+            result = sum(num1, num2);
             break;
         case "-":
-            result = subtract(a, b);
-            break;
-        case "÷":
-            switch (true) {
-                case b !== 0:
-                    result = a / b;
-                    break;
-
-                case b == 0:
-                    result = "Can't Divide By 0"
-                    break;
-
-                default:
-                    break;
-            }
+            result = subtract(num1, num2);
             break;
         case "x":
-            result = multiply(a, b);
+            result = multiply(num1, num2);
             break;
-
+        case "÷":
+            if (num2 === 0) {
+                result = "Can't Divide By 0";
+            } else {
+                result = divide(num1, num2);
+            }
+            break;
         default:
-            break;
-
+            result = "Error";
     }
-    return result
+    return result;
+
+
 }
 
 
