@@ -66,33 +66,30 @@ function clearEntry() {
 
 
 
-//decimal function
 function appendDecimal() {
-    if (shouldResetScreen) {
-        resetScreen();
-    }
-
-    // if (bottomSc.textContent === "") {
-    //     bottomSc.textContent = "";
-    // }
-    // //if there is already a decimal point.. return nothing
-    // if (bottomSc.textContent.includes('.')){
-    //     return;
-    // }
-
-    if (bottomSc.textContent === "") {
-        bottomSc.textContent = "0";
-    }
-
+    // Check if decimal already exists
     if (bottomSc.textContent.includes('.')) {
         return;
     }
 
-    //add a decimal if previous 3 conditions are met
+    // If there is no current number and no decimal, add a leading zero
+    if (bottomSc.textContent === "") {
+        bottomSc.textContent = "0";
+    }
+
+    // If previous calculation was made and the result already contains a decimal, set the new number to "0."
+    if (calculator.display.includes("=") && calculator.display.endsWith(".")) {
+        calculator.num1 = "0";
+        calculator.num2 = "";
+        calculator.operand = "";
+        topSc.textContent = "";
+    }
+
+    // Add decimal to the number and update the display
     bottomSc.textContent += ".";
+    calculator.num2 += ".";
+    calculator.display = topSc.textContent + " = " + bottomSc.textContent;
 }
-
-
 
 
 
