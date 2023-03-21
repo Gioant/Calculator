@@ -24,7 +24,9 @@ function handleNumber(button) {
     finalResult = null;
 
     //update variable
-    currentValue = Number(currentValue + button.innerText);
+    if (bottomSc.textContent.toString().length < 15) {
+        currentValue = Number(currentValue + button.innerText);
+    }
 
     // Display to screen
     bottomSc.innerText = currentValue;
@@ -41,9 +43,10 @@ function handleOperator(button) {
         previousValue = currentValue + finalResult;
 
         currentValue = 0;
+        operator = button.innerText;
 
         //Display Results to Screen
-        topSc.innerText += bottomSc.innerText + button.innerText;
+        topSc.innerText += bottomSc.innerText + " " + button.innerText;
         bottomSc.innerText = currentValue;
 
 
@@ -51,9 +54,10 @@ function handleOperator(button) {
         previousValue = operate(previousValue, currentValue, operator);
 
         currentValue = 0;
+        operator = button.innerText;
 
         //Display Results to Screen
-        topSc.innerText += bottomSc.innerText + button.innerText;;
+        topSc.innerText += bottomSc.innerText + " " + button.innerText;;
         bottomSc.innerText = currentValue;
     }
 }
@@ -119,7 +123,7 @@ function operate(a, b, operand) {
             return a + b;
         case '-':
             return a - b;
-        case '×':
+        case 'x':
             return a * b;
         case '÷':
             return a / b;
