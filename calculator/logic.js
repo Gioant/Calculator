@@ -46,7 +46,7 @@ function handleOperator(button) {
         operator = button.innerText;
 
         //Display Results to Screen
-        topSc.innerText += bottomSc.innerText + " " + button.innerText;
+        topSc.innerText += " " + bottomSc.innerText + " " + button.innerText;
         bottomSc.innerText = currentValue;
 
 
@@ -57,7 +57,7 @@ function handleOperator(button) {
         operator = button.innerText;
 
         //Display Results to Screen
-        topSc.innerText += bottomSc.innerText + " " + button.innerText;;
+        topSc.innerText += " " + bottomSc.innerText + " " + button.innerText;
         bottomSc.innerText = currentValue;
     }
 }
@@ -80,6 +80,13 @@ function handleEquals() {
 
         //call operator function
         finalResult = operate(previousValue, currentValue, operator);
+
+
+        //only round off if final result is more than 15 digits
+        if (finalResult.toString().length > 15) {
+            //round off final result
+            finalResult = finalResult.toExponential(10);
+        }
 
         //reset variables
         currentValue = 0;
