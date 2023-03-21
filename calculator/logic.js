@@ -19,6 +19,7 @@ const decimalBtn = document.getElementById("decimal");
 const equalsBtn = document.getElementById("equals");
 
 
+//for Numbers
 function handleNumber(button) {
     finalResult = null;
 
@@ -29,6 +30,7 @@ function handleNumber(button) {
     bottomSc.innerText = currentValue;
 }
 
+//function for when button is an operator
 function handleOperator(button) {
 
     if ((operator !== null) && (currentValue === 0)) {
@@ -56,6 +58,7 @@ function handleOperator(button) {
     }
 }
 
+//function to add decimal
 function handleDecimal() {
     if (!currentValue.toString().includes('.')) {
         currentValue += '.';
@@ -65,6 +68,7 @@ function handleDecimal() {
     return bottomSc.innerText = currentValue;
 }
 
+//handle equals
 function handleEquals() {
     if (operator === null) {
         return currentValue;
@@ -80,7 +84,7 @@ function handleEquals() {
         topSc.innerText = null;
 
         // display current result
-        return bottomSc.innerText = finalResult;
+        bottomSc.innerText = finalResult;
     }
 }
 
@@ -108,7 +112,7 @@ function clearAll() {
 
 
 //Math functions
-function operate(operand, a, b) {
+function operate(a, b, operand) {
     //check what operator it is
     switch (operand) {
         case '+':
