@@ -13,9 +13,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 main {
@@ -33,7 +30,7 @@ main {
     border-bottom: 8px solid black;
     border-right: 3px solid black;
     border-radius: 3%;
-    width: 30vw;
+    width: 25vw;
     height: 75vh;
     padding: 2rem 0;
     display: flex;
@@ -117,11 +114,6 @@ button:hover {
     transform: translate(0, 0.25em); */
 }
 
-button::before {
-    /* -webkit-transform: translate3d(0, 0.5em, -1em);
-    transform: translate3d(0, 0.5em, -1em); */
-}
-
 button:active {
     background: #ffe9e9;
     -webkit-transform: translate(0em, 0.75em);
@@ -131,4 +123,33 @@ button:active {
 button:active::before {
     -webkit-transform: translate3d(0, 0, -1em);
     transform: translate3d(0, 0, -1em);
+}
+
+@media screen and (max-width: 479px) {
+    #calculator {
+        width: 75vw;
+        height: 70vh;
+        padding: 2rem 0.75rem;
+    }
+
+    #all-btns {
+        width: 95%;
+        padding: unset;
+        gap: 20px;
+    }
+
+    #screen {
+        width: 90%;
+        height: 12vh;
+        padding: 0px 8px;
+    }
+
+    #result {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 14px;
+        border-radius: 8px;
+    }
 }
