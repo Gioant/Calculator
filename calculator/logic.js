@@ -18,7 +18,6 @@ const clearAllBtn = document.getElementById("clear-all");
 const decimalBtn = document.getElementById("decimal");
 const equalsBtn = document.getElementById("equals");
 
-
 //for Numbers
 function handleNumber(button) {
     finalResult = null;
@@ -77,10 +76,14 @@ function handleEquals() {
     if (operator === null) {
         return currentValue;
     } else {
-
         //call operator function
         finalResult = operate(previousValue, currentValue, operator);
 
+
+        if (isNaN(finalResult)) {
+            bottomSc.innerText = "Can't Divide By 0";
+            return;
+        }
 
         //only round off if final result is more than 15 digits
         if (finalResult.toString().length > 15) {
@@ -168,9 +171,8 @@ clearEntryBtn.addEventListener("click", () => {
 
 
 //Keyboard support
-//get all the buttons regardless of class
+//get all the buttons
 const buttons = document.querySelectorAll('button');
-
 //add event listener to document and attach it to every button
 document.addEventListener('keydown', e => {
     buttons.forEach((button) => {
@@ -184,7 +186,7 @@ document.addEventListener('keydown', e => {
             || ((e.key === 'Escape') && (button.innerText === 'C'))
             || ((e.key === '*') && (button.innerText === '×'))
             || ((e.key === '/') && (button.innerText === '÷'))) {
-            e.preventDefault();
+            //e.preventDefault();
             button.click();
         }
     });
