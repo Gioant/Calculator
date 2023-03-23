@@ -173,21 +173,50 @@ clearEntryBtn.addEventListener("click", () => {
 //Keyboard support
 //get all the buttons
 const buttons = document.querySelectorAll('button');
-//add event listener to document and attach it to every button
+// //add event listener to document and attach it to every button
+// document.addEventListener('keydown', e => {
+//     buttons.forEach((button) => {
+//         /*
+//         compare keyboard input to button's inner text
+//         then it will press the button programmatically if it matches
+//         */
+//         if ((e.key === button.innerText)
+//             || ((e.key === 'Enter') && (button.innerText === '='))
+//             || ((e.key === 'Backspace') && (button.innerText === 'CE'))
+//             || ((e.key === 'Escape') && (button.innerText === 'C'))
+//             || ((e.key === '*') && (button.innerText === '×'))
+//             || ((e.key === '/') && (button.innerText === '÷'))) {
+//             //e.preventDefault();
+//             button.click();
+//         }
+//     });
+// });
+
+
+//creating obj of key-value pairs for keyboard inputs
+const keyInputs = {
+    'Enter': '=',
+    'Backspace': 'CE',
+    'Escape': 'C',
+    '*': '×',
+    '/': '÷'
+};
+
+
+//add event listener to document
 document.addEventListener('keydown', e => {
-    buttons.forEach((button) => {
-        /*
-        compare keyboard input to button's inner text
-        then it will press the button programmatically if it matches
-        */
-        if ((e.key === button.innerText)
-            || ((e.key === 'Enter') && (button.innerText === '='))
-            || ((e.key === 'Backspace') && (button.innerText === 'CE'))
-            || ((e.key === 'Escape') && (button.innerText === 'C'))
-            || ((e.key === '*') && (button.innerText === '×'))
-            || ((e.key === '/') && (button.innerText === '÷'))) {
-            //e.preventDefault();
-            button.click();
-        }
-    });
+    //map certain keyboard keys to a specific button while leaving other "keys" as is
+    const buttonText = keyInputs[e.key] || e.key;
+
+    /*
+    1) Using Array.From, convert nodeList to array and use find method
+    2) for each button, search the innerText of the btn and compare it with buttonText Variable
+    3) if button was found, simulate click 
+    */
+    const button = Array.from(buttons).find(btn => btn.innerText === buttonText);
+    if (button) {
+        e.preventDefault();
+        button.click();
+    }
 });
+
