@@ -8,9 +8,6 @@
     src: url("../Font/Norsebold.otf") format("opentype");
 }
 
-* {
-    touch-action: manipulation;
-}
 
 body {
     background: #D3CCE3;
