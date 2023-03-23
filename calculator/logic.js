@@ -173,25 +173,6 @@ clearEntryBtn.addEventListener("click", () => {
 //Keyboard support
 //get all the buttons
 const buttons = document.querySelectorAll('button');
-// //add event listener to document and attach it to every button
-// document.addEventListener('keydown', e => {
-//     buttons.forEach((button) => {
-//         /*
-//         compare keyboard input to button's inner text
-//         then it will press the button programmatically if it matches
-//         */
-//         if ((e.key === button.innerText)
-//             || ((e.key === 'Enter') && (button.innerText === '='))
-//             || ((e.key === 'Backspace') && (button.innerText === 'CE'))
-//             || ((e.key === 'Escape') && (button.innerText === 'C'))
-//             || ((e.key === '*') && (button.innerText === '×'))
-//             || ((e.key === '/') && (button.innerText === '÷'))) {
-//             //e.preventDefault();
-//             button.click();
-//         }
-//     });
-// });
-
 
 //creating obj of key-value pairs for keyboard inputs
 const keyInputs = {
