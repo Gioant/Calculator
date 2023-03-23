@@ -207,9 +207,13 @@ button:active::before {
 @media screen and (max-width: 479px) {
 
     header {
+        font-family: 'Nabla', cursive;
+        font-style: normal;
+        font-weight: 700;
         font-size: 20px;
         letter-spacing: 10px;
     }
+
 
     footer {
         font-size: 12px;
