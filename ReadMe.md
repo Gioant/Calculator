@@ -1,3 +1,7 @@
+## Demo
+
+You can try out the calculator by visiting [Here](https://gioant.github.io/odin-Calculator/).
+
 # Calculator with Keyboard and Mobile Support
 
 This is a simple calculator project created with Javascript, CSS, and HTML. It has keyboard support for desktop users and is responsive for mobile users. 
@@ -26,10 +30,6 @@ To use the calculator, simply click on the buttons with your mouse or tap them w
 - Division: `/`
 - ClearAll: `Escape`
 - Delete: `Backspace`
-
-## Demo
-
-You can try out the calculator by visiting [Here](https://gioant.github.io/odin-Calculator/).
 
 ## Credits
 
