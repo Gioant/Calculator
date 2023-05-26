@@ -1,6 +1,6 @@
 ## Demo
 
-You can try out the calculator by visiting [Here](https://gioant.github.io/odin-Calculator/).
+You can try out the calculator by visiting [Here](https://gioant.github.io/Calculator/).
 
 # Calculator with Keyboard and Mobile Support
 
