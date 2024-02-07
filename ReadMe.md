@@ -4,7 +4,7 @@ You can try out the calculator by visiting [Here](https://gioant.github.io/Calcu
 
 # Calculator with Keyboard and Mobile Support
 
-This is a simple calculator project created with Javascript, CSS, and HTML. It has keyboard support for desktop users and is responsive for mobile users. 
+A calculator project created with Javascript, CSS, and HTML. It has keyboard support for desktop users and is responsive for mobile users.
 
 ## Features
 
